@@ -35,7 +35,7 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-    res.send('Runnig server in herokua')
+    res.send('Runnig server 200')
 })
 
 app.listen(port, () => {
