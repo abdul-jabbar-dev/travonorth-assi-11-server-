@@ -19,7 +19,7 @@ async function run() {
         const database = client.db("travnorth");
         const mydatabase = database.collection("places");
 
-        app.get('/places', async (req, res) => {
+        app.get('/place', async (req, res) => {
             const inter = mydatabase.find({})
             const user = await inter.toArray()
             console.log('this is user ', user, 'and db', inter,)
@@ -35,7 +35,7 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-    res.send('Runnig server in heroku')
+    res.send('Runnig server in herokua')
 })
 
 app.listen(port, () => {
