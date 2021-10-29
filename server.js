@@ -26,7 +26,6 @@ async function run() {
             res.send(user)
         })
 
-
     } finally {
         // await client.close();
     }
