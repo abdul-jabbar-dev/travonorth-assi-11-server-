@@ -35,7 +35,7 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-    res.send('Runnig server')
+    res.send('Runnig server in heroku')
 })
 
 app.listen(port, () => {
