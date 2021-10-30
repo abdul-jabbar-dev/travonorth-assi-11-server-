@@ -18,12 +18,17 @@ async function run() {
         await client.connect();
         const database = client.db("travnorth");
         const mydatabase = database.collection("places");
-
-        app.get('/place', async (req, res) => {
+        // data get
+        app.get('/places', async (req, res) => {
             const inter = mydatabase.find({})
             const user = await inter.toArray()
-            console.log('this is user ', user, 'and db', inter,)
             res.send(user)
+        })
+        // data post
+        app.post('/places', async (req, res) => {
+            console.log(req.body)
+            const result = await mydatabase.insertOne(req.body)
+            res.json(result)
         })
 
     } finally {
@@ -31,8 +36,6 @@ async function run() {
     }
 }
 run().catch(console.dir);
-
-
 
 app.get('/', (req, res) => {
     res.send('Runnig server 200')
