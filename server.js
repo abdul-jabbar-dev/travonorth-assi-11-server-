@@ -24,6 +24,13 @@ async function run() {
             const user = await inter.toArray()
             res.send(user)
         })
+        // data single get 
+        app.get('/places/:id', async (req, res) => {
+            const id = req.params.id
+            const quary = { _id: ObjectId(id) }
+            const result = await mydatabase.findOne(quary)
+            res.send(result)
+        })
         // data post
         app.post('/places', async (req, res) => {
             console.log(req.body)
