@@ -38,8 +38,6 @@ async function run() {
             const id = req.params.id;
             const quare = { _id: ObjectId(id) }
             const data = req.body
-            console.log('data',data)
-            console.log('id',id)
             const options = { upsert: true };
             const updateDoc = {
                 $set: {
@@ -67,7 +65,6 @@ async function run() {
             const id = req.params.id;
             const quare = { _id: ObjectId(id) }
             const result = await mydatabase.deleteOne(quare)
-            console.log('deleting users', id)
             res.json(result)
 
         })
