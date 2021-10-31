@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const express = require("express")
 const cors = require('cors')
 const app = express()
@@ -27,6 +27,7 @@ async function run() {
         // data single get 
         app.get('/places/:id', async (req, res) => {
             const id = req.params.id
+            console.log(id)
             const quary = { _id: ObjectId(id) }
             const result = await mydatabase.findOne(quary)
             res.send(result)
