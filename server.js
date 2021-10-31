@@ -38,6 +38,8 @@ async function run() {
             const id = req.params.id;
             const quare = { _id: ObjectId(id) }
             const data = req.body
+            console.log('data',data)
+            console.log('id',id)
             const options = { upsert: true };
             const updateDoc = {
                 $set: {
@@ -58,7 +60,7 @@ async function run() {
         app.post('/places', async (req, res) => {
             console.log(req.body)
             const result = await mydatabase.insertOne(req.body)
-            res.json(result)
+            res.json('result')
         })
 
 
