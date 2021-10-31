@@ -24,6 +24,7 @@ async function run() {
             const user = await inter.toArray()
             res.send(user)
         })
+
         // data single get 
         app.get('/places/:id', async (req, res) => {
             const id = req.params.id
@@ -32,12 +33,34 @@ async function run() {
             const result = await mydatabase.findOne(quary)
             res.send(result)
         })
+        //put api 
+        app.put('/places/:id', async (req, res) => {
+            const id = req.params.id;
+            const quare = { _id: ObjectId(id) }
+            const data = req.body
+            const options = { upsert: true };
+            const updateDoc = {
+                $set: {
+                    title: data.title,
+                    img: data.img,
+                    discription: data.discription,
+                    hotelP: data.hotelP,
+                    ticket: data.ticket,
+                    date: data.date,
+                },
+            };
+            console.log("data", data)
+            const result = await mydatabase.updateOne(quare, updateDoc, options)
+            console.log('updating users', id)
+            res.json(result)
+        })
         // data post
         app.post('/places', async (req, res) => {
             console.log(req.body)
             const result = await mydatabase.insertOne(req.body)
             res.json(result)
         })
+
 
     } finally {
         // await client.close();
