@@ -45,9 +45,9 @@ async function run() {
                 $set: {
                     title: data.title,
                     img: data.img,
-                    discription: data.discription,
-                    hotelP: data.hotelP,
                     ticket: data.ticket,
+                    hotelP: data.hotelP,
+                    discription: data.discription,
                     date: data.date,
                 },
             };
@@ -61,6 +61,15 @@ async function run() {
             console.log(req.body)
             const result = await mydatabase.insertOne(req.body)
             res.json('result')
+        })
+        //delete user
+        app.delete('/places/:id', async (req, res) => {
+            const id = req.params.id;
+            const quare = { _id: ObjectId(id) }
+            const result = await mydatabase.deleteOne(quare)
+            console.log('deleting users', id)
+            res.json(result)
+
         })
 
 
