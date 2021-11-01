@@ -47,7 +47,8 @@ async function run() {
                     hotelP: data.hotelP,
                     discription: data.discription,
                     date: data.date,
-                    edit:data.edit
+                    edit:data.edit,
+                    isActive: isChecked
                 },
             };
             console.log("data", data)
