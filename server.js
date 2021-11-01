@@ -48,7 +48,7 @@ async function run() {
                     discription: data.discription,
                     date: data.date,
                     edit:data.edit,
-                    isActive: isChecked
+                    isActive: data.isActive
                 },
             };
             console.log("data", data)
