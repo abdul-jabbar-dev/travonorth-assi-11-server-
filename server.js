@@ -47,6 +47,7 @@ async function run() {
                     hotelP: data.hotelP,
                     discription: data.discription,
                     date: data.date,
+                    edit:data.edit
                 },
             };
             console.log("data", data)
